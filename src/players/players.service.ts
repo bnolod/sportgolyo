@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Res } from '@nestjs/common';
 import { CreatePlayerDto } from './dto/create-player.dto';
 import { UpdatePlayerDto } from './dto/update-player.dto';
 import { PrismaService } from 'src/prisma.service';
@@ -31,9 +31,28 @@ export class PlayersService {
     });
   }
 
-  remove(id: number) {
-    return this.prismaService.player.delete({
-      where: { id },
-    });
+  async remove(id: number, @Res() res) {
+    try {
+      const player = await this.prismaService.player.findUnique({
+        where: { id: id },
+      });
+  
+      if (!player) {
+        return res.status(404).json({ error: 'Player not found' });
+      }
+  
+      // return await this.prismaService.player.delete({
+      //   where: { id: id },
+      
+      // });
+
+      await this.prismaService.player.delete({
+        where: { id: id },
+      });
+      return res.status(200).json({ message: 'Player deleted' });
+
+    } catch (error) {
+      throw new Error(`Failed to delete player: ${error.message}`);
+    }
   }
 }
