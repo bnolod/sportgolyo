@@ -20,7 +20,15 @@ schema.prisma módosítások érvénybe léptetése:
 npx prisma db push
 ```
 
-alap adatok?
+seedelés (prisma/seed.ts fileba beírt parancsok futtatása, pl táblába létrehozni dolgokat)
+
+```
+//package.jsonba beilleszteni: 
+
+"prisma": {
+"seed": "ts-node prisma/seed.ts"
+}
+```
 
 ```
 npx prisma db seed
