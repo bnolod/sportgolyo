@@ -1,4 +1,11 @@
-# Segédlet, ilyenek 😎
+
+# Hali
+
+> [!NOTE]
+> Nagyon alap dolgok szerepelnek ebben a repoban, minden más már robot munka
+
+
+## Segédlet, ilyenek 😎
 
 # env
 
