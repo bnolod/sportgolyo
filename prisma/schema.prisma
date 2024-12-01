@@ -19,7 +19,7 @@ model player {
   birthDate DateTime
 
   id     Int  @id @default(autoincrement())
-  teamId Int  @unique
+  teamId Int
   team   team @relation(fields: [teamId], references: [id])
 }
 

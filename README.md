@@ -18,6 +18,10 @@ schema.prisma módosítások érvénybe léptetése:
 
 ```
 npx prisma db push
+
+// force reset:
+
+npx prisma db push --force-reset
 ```
 
 seedelés (prisma/seed.ts fileba beírt parancsok futtatása, pl táblába létrehozni dolgokat)
